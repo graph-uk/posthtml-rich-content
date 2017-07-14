@@ -1,5 +1,5 @@
-const addClass = require('./lib/helpers').addClass;
-const hasClass = require('./lib/helpers').hasClass;
+const addClass = require('./helpers/addClass');
+const hasClass = require('./helpers/hasClass');
 
 /**
  * Wrap <iframe> with <div> to make to proportional

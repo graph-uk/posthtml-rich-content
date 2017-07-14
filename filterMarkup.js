@@ -1,4 +1,4 @@
-const addClass = require('./lib/helpers').addClass;
+const addClass = require('./helpers/addClass');
 
 /**
  * Add "markup" class to each tag

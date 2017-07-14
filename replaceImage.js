@@ -1,5 +1,5 @@
-const addClass = require('./lib/helpers').addClass;
-const countTags = require('./lib/helpers').coutTags;
+const addClass = require('./helpers/addClass');
+const countTags = require('./helpers/countTags');
 
 function imageBlock(image, description, classNames) {
 	addClass(image, classNames.image);
