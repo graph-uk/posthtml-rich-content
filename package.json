@@ -1,0 +1,35 @@
+{
+  "name": "posthtml-rich-content",
+  "version": "0.0.1",
+  "description": "A set of PostHTML plugins to transform rich content",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/graph-uk/posthtml-rich-content.git"
+  },
+  "keywords": [
+    "posthtml",
+    "wysiwyg",
+    "image",
+    "iframe",
+    "quote"
+  ],
+  "author": {
+    "name": "Vladimir Kuznetsov",
+    "email": "vladimir.kuznetsov@graph.uk"
+  },
+  "contributors": [
+    {
+      "name": "Kate Alkaeva",
+      "email": "kate.alkaeva@graph.uk"
+    }
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/graph-uk/posthtml-rich-content/issues"
+  },
+  "homepage": "https://github.com/graph-uk/posthtml-rich-content#readme"
+}
