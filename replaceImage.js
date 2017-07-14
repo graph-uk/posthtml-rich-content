@@ -5,26 +5,20 @@ function imageBlock(image, description, classNames) {
 	addClass(image, classNames.image);
 
 	return {
-		tag: 'div',
+		tag: 'figure',
 		attrs: {
 			class: classNames.block
 		},
-		content: {
-			tag: 'figure',
-			attrs: {
-				class: classNames.content
-			},
-			content: [
-				image,
-				{
-					tag: 'figcation',
-					attrs: {
-						class: classNames.caption
-					},
-					content: description
-				}
-			]
-		}
+		content: [
+			image,
+			{
+				tag: 'figcation',
+				attrs: {
+					class: classNames.caption
+				},
+				content: description
+			}
+		]
 	};
 }
 
@@ -96,7 +90,6 @@ module.exports = function (b) {
 	var classNames = {
 		block: b('figure'),
 		image: b('figure-image'),
-		content: b('figure-content'),
 		caption: b('figure-caption')
 	};
 
