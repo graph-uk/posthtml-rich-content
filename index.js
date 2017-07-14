@@ -1,9 +1,4 @@
-var posthtml = require('posthtml');
-
-module.exports = function (plugins) {
-	return function (html) {
-		return posthtml(plugins)
-			.process(html, {sync: true})
-			.html;
-	};
-};
+exports.filterMarkup = require('./filterMarkup');
+exports.replaceImage = require('./replaceImage');
+exports.replaceQuote = require('./replaceQuote');
+exports.replaceVideo = require('./replaceVideo');
