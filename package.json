@@ -31,5 +31,8 @@
   "bugs": {
     "url": "https://github.com/graph-uk/posthtml-rich-content/issues"
   },
-  "homepage": "https://github.com/graph-uk/posthtml-rich-content#readme"
+  "homepage": "https://github.com/graph-uk/posthtml-rich-content#readme",
+  "dependencies": {
+    "posthtml": "^0.9.2"
+  }
 }
