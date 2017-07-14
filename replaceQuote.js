@@ -1,5 +1,5 @@
-const addClass = require('./helpers/addClass');
-const hasClass = require('./helpers/hasClass');
+var addClass = require('./helpers/addClass');
+var hasClass = require('./helpers/hasClass');
 
 /**
  * Wrap <blockquot> with some divs
@@ -7,9 +7,9 @@ const hasClass = require('./helpers/hasClass');
  * @return {Function}
  */
 module.exports = function (b) {
-	const classQuote = b('quote');
-	const classQuoteContent = b('quote-content');
-	const classQuoteText = b('quote-text');
+	var classQuote = b('quote');
+	var classQuoteContent = b('quote-content');
+	var classQuoteText = b('quote-text');
 
 	/**
 	 * Traverse the tree

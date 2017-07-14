@@ -1,4 +1,4 @@
-const posthtml = require('posthtml');
+var posthtml = require('posthtml');
 
 module.exports = function (plugins) {
 	return function (html) {

@@ -6,7 +6,7 @@
  * @return {Object}
  */
 module.exports = function addClass(node, className, prepend) {
-	const classes = !(node.attrs && node.attrs.class) ? [] : node.attrs.class.split(' ');
+	var classes = !(node.attrs && node.attrs.class) ? [] : node.attrs.class.split(' ');
 
 	if (prepend) {
 		classes.unshift(className);

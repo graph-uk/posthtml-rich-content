@@ -1,4 +1,4 @@
-const addClass = require('./helpers/addClass');
+var addClass = require('./helpers/addClass');
 
 /**
  * Add "markup" class to each tag
@@ -6,7 +6,7 @@ const addClass = require('./helpers/addClass');
  * @return {Function}
  */
 module.exports = function (b) {
-	const baseBlock = b();
+	var baseBlock = b();
 
 	/**
 	 * Traverse the tree
@@ -16,7 +16,7 @@ module.exports = function (b) {
 	return function (tree) {
 		tree.walk(function (node) {
 			if (node.tag) {
-				const className = 'markup-' + node.tag;
+				var className = 'markup-' + node.tag;
 
 				if (baseBlock) {
 					addClass(node, baseBlock + '__' + className, true);

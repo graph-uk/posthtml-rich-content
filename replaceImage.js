@@ -1,5 +1,5 @@
-const addClass = require('./helpers/addClass');
-const countTags = require('./helpers/countTags');
+var addClass = require('./helpers/addClass');
+var countTags = require('./helpers/countTags');
 
 function imageBlock(image, description, classNames) {
 	addClass(image, classNames.image);
@@ -33,7 +33,7 @@ function getImageNode(node) {
 		return false;
 	}
 
-	const tag = node.content[0].tag;
+	var tag = node.content[0].tag;
 
 	if (tag === 'img') {
 		return node.content[0];
@@ -65,12 +65,12 @@ function getDescriptionNode(node) {
 
 function replaceImage(tree, classNames) {
 	return tree.map(function (node, i, sibling) {
-		const next = sibling[i + 1];
+		var next = sibling[i + 1];
 
 		if (next) {
 			if (node.tag === 'p' && next.tag === 'p') {
-				const image = getImageNode(node);
-				const description = getDescriptionNode(next);
+				var image = getImageNode(node);
+				var description = getDescriptionNode(next);
 
 				if (image && description) {
 					sibling[i + 1] = [];
@@ -93,7 +93,7 @@ function replaceImage(tree, classNames) {
  * @return {Function}
  */
 module.exports = function (b) {
-	const classNames = {
+	var classNames = {
 		block: b('figure'),
 		image: b('figure-image'),
 		content: b('figure-content'),

@@ -1,5 +1,5 @@
-const addClass = require('./helpers/addClass');
-const hasClass = require('./helpers/hasClass');
+var addClass = require('./helpers/addClass');
+var hasClass = require('./helpers/hasClass');
 
 /**
  * Wrap <iframe> with <div> to make to proportional
@@ -7,9 +7,9 @@ const hasClass = require('./helpers/hasClass');
  * @return {Function}
  */
 module.exports = function (b) {
-	const classVideo = b('video');
-	const classVideoContent = b('video-content');
-	const classIframe = b('video-iframe');
+	var classVideo = b('video');
+	var classVideoContent = b('video-content');
+	var classIframe = b('video-iframe');
 
 	/**
 	 * Traverse the tree
