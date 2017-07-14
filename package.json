@@ -1,6 +1,6 @@
 {
   "name": "posthtml-rich-content",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A set of PostHTML plugins to transform rich content",
   "main": "index.js",
   "scripts": {
@@ -32,6 +32,5 @@
     "url": "https://github.com/graph-uk/posthtml-rich-content/issues"
   },
   "homepage": "https://github.com/graph-uk/posthtml-rich-content#readme",
-  "dependencies": {
-  }
+  "dependencies": {}
 }
