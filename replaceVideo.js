@@ -1,15 +1,15 @@
-const addClass = require('./helpers').addClass;
-const hasClass = require('./helpers').hasClass;
+const addClass = require('./lib/helpers').addClass;
+const hasClass = require('./lib/helpers').hasClass;
 
 /**
- * Wrap <blockquot> with some divs
+ * Wrap <iframe> with <div> to make to proportional
  * @param {Function} b is an instance of "bem-cn-lite" generator
  * @return {Function}
  */
 module.exports = function (b) {
-	const classQuote = b('quote');
-	const classQuoteContent = b('quote-content');
-	const classQuoteText = b('quote-text');
+	const classVideo = b('video');
+	const classVideoContent = b('video-content');
+	const classIframe = b('video-iframe');
 
 	/**
 	 * Traverse the tree
@@ -18,18 +18,18 @@ module.exports = function (b) {
 	 */
 	return function (tree) {
 		tree.walk(function (node) {
-			if (node.tag === 'blockquot' && !hasClass(node, classQuoteText)) {
-				addClass(node, classQuoteText);
+			if (node.tag === 'iframe' && !hasClass(node, classIframe)) {
+				addClass(node, classIframe);
 
 				return {
 					tag: 'div',
 					attrs: {
-						class: classQuote
+						class: classVideo
 					},
 					content: {
 						tag: 'div',
 						attrs: {
-							class: classQuoteContent
+							class: classVideoContent
 						},
 						content: [node]
 					}
