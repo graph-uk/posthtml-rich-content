@@ -8,7 +8,6 @@ var hasClass = require('./helpers/hasClass');
  */
 module.exports = function (b) {
 	var classVideo = b('video');
-	var classVideoContent = b('video-content');
 	var classIframe = b('video-iframe');
 
 	/**
@@ -26,13 +25,7 @@ module.exports = function (b) {
 					attrs: {
 						class: classVideo
 					},
-					content: {
-						tag: 'div',
-						attrs: {
-							class: classVideoContent
-						},
-						content: [node]
-					}
+					content: [node]
 				};
 			}
 			return node;
