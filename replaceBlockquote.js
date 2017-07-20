@@ -1,8 +1,8 @@
 var addClass = require('./helpers/addClass');
 var countTags = require('./helpers/countTags');
 
-function imageBlock(image, description, classNames) {
-	addClass(image, classNames.image);
+function blockquoteBlock(blockquote, description, classNames) {
+	addClass(blockquote, classNames.blockquote);
 
 	return {
 		tag: 'figure',
@@ -10,7 +10,7 @@ function imageBlock(image, description, classNames) {
 			class: classNames.block
 		},
 		content: [
-			image,
+			blockquote,
 			{
 				tag: 'figcaption',
 				attrs: {
@@ -22,14 +22,14 @@ function imageBlock(image, description, classNames) {
 	};
 }
 
-function getImageNode(node) {
+function getBlockquoteNode(node) {
 	if (node.content.length > 1) {
 		return false;
 	}
 
 	var tag = node.content[0].tag;
 
-	if (tag === 'img') {
+	if (tag === 'blockquote') {
 		return node.content[0];
 	}
 
@@ -57,24 +57,24 @@ function getDescriptionNode(node) {
 	return false;
 }
 
-function replaceImage(tree, classNames) {
-	return tree.map(function (node, i, sibling) {
+function replaceBlockquote(tree, classNames) {
+	return tree.map(function(node, i, sibling) {
 		var next = sibling[i + 1];
 
 		if (next) {
 			if (node.tag === 'p' && next.tag === 'p') {
-				var image = getImageNode(node);
+				var blockquote = getBlockquoteNode(node);
 				var description = getDescriptionNode(next);
 
-				if (image && description) {
+				if (blockquote && description) {
 					sibling[i + 1] = [];
-					node = imageBlock(image, description, classNames);
+					node = blockquoteBlock(blockquote, description, classNames);
 				}
 			}
 		}
 
 		if (Array.isArray(node.content)) {
-			node.content = replaceImage(node.content, classNames);
+			node.content = replaceBlockquote(node.content, classNames);
 		}
 
 		return node;
@@ -82,15 +82,15 @@ function replaceImage(tree, classNames) {
 }
 
 /**
- * Convert <p><img></p><p><em>Image caption</em></p> into <figure>
+ * Convert <p><blockquote></p><p><em>Blockquote caption</em></p> into <figure>
  * @param {Function} b is an instance of "bem-cn-lite" generator
  * @return {Function}
  */
 module.exports = function (b) {
 	var classNames = {
-		block: b('figure-image'),
-		image: b('figure-image-img'),
-		caption: b('figure-image-caption')
+		block: b('figure-blockquote'),
+		blockquote: b('figure-blockquote-text'),
+		caption: b('figure-blockquote-caption')
 	};
 
 	/**
@@ -99,6 +99,6 @@ module.exports = function (b) {
 	 * @return {Array}
 	 */
 	return function (tree) {
-		return replaceImage(tree, classNames);
+		return replaceBlockquote(tree, classNames);
 	};
 };
