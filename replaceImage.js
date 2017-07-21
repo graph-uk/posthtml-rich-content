@@ -12,7 +12,7 @@ function imageBlock(image, description, classNames) {
 		content: [
 			image,
 			{
-				tag: 'figcation',
+				tag: 'figcaption',
 				attrs: {
 					class: classNames.caption
 				},
