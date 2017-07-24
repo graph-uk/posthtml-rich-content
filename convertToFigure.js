@@ -96,7 +96,7 @@ module.exports = function (b, tag) {
 	const elementModifier = MODIFIERS[tag] || tag;
 	const classNames = {
 		block: b('figure', {type: elementModifier}),
-		element: b(elementModifier),
+		element: b('figure-content', {type: elementModifier}),
 		caption: b('figure-caption', {type: elementModifier})
 	};
 
