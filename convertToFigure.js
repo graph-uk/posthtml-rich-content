@@ -39,13 +39,13 @@ function getElementNode(node, element) {
 	return false;
 }
 
-function getDescriptionNode(node, element) {
+function getDescriptionNode(node, tag) {
 	if (node.content.length > 1) {
 		return false;
 	}
 
 	if (node.content[0].tag === 'em') {
-		if (countTags(node.content[0].content, element) > 0) {
+		if (countTags(node.content[0].content, tag) > 0) {
 			return false;
 		}
 		return node.content[0].content;
