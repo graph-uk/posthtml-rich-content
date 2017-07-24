@@ -1,6 +1,14 @@
-const countTags = require('posthtml-rich-content/helpers/countTags');
+const countTags = require('./helpers/countTags');
+const addClass = require('./helpers/addClass');
+
+const MODIFIERS = {
+	img: 'picture',
+	blockquote: 'quote'
+};
 
 function elementBlock(element, description, classNames) {
+	addClass(element, classNames.element);
+
 	return {
 		tag: 'figure',
 		attrs: {
@@ -55,7 +63,7 @@ function getDescriptionNode(node, tag) {
 }
 
 function replaceElement(tree, classNames, tag) {
-	return tree.map(function(node, i, sibling) {
+	return tree.map(function (node, i, sibling) {
 		const next = sibling[i + 1];
 
 		if (next) {
@@ -80,17 +88,15 @@ function replaceElement(tree, classNames, tag) {
 
 /**
  * Convert <p><element></p><p><em>Element caption</em></p> into <figure>
- * @param {Function} b is an instance of "bem-cn-lite" generator; tag is an element tag ex. 'img', 'blockquote'
+ * @param {Function} b is an instance of "bem-cn-lite" generator
+ * @param {String} tag is an element tag ex. 'img', 'blockquote'
  * @return {Function}
  */
 module.exports = function (b, tag) {
-	const modifiers = {
-		img: 'picture',
-		blockquote: 'quote'
-	};
-	const elementModifier = tag in modifiers ? modifiers[tag] : tag;
+	const elementModifier = MODIFIERS[tag] || tag;
 	const classNames = {
 		block: b('figure', {type: elementModifier}),
+		element: b(elementModifier),
 		caption: b('figure-caption', {type: elementModifier})
 	};
 
