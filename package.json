@@ -1,6 +1,6 @@
 {
   "name": "posthtml-rich-content",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "A set of PostHTML plugins to transform rich content",
   "main": "index.js",
   "scripts": {
