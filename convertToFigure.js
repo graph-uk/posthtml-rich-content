@@ -1,7 +1,7 @@
-const countTags = require('./helpers/countTags');
-const addClass = require('./helpers/addClass');
+var countTags = require('./helpers/countTags');
+var addClass = require('./helpers/addClass');
 
-const MODIFIERS = {
+var MODIFIERS = {
 	img: 'picture',
 	blockquote: 'quote'
 };
@@ -32,7 +32,7 @@ function getElementNode(node, element) {
 		return false;
 	}
 
-	const tag = node.content[0].tag;
+	var tag = node.content[0].tag;
 
 	if (tag === element) {
 		return node.content[0];
@@ -64,12 +64,12 @@ function getDescriptionNode(node, tag) {
 
 function replaceElement(tree, classNames, tag) {
 	return tree.map(function (node, i, sibling) {
-		const next = sibling[i + 1];
+		var next = sibling[i + 1];
 
 		if (next) {
 			if (node.tag === 'p' && next.tag === 'p') {
-				const element = getElementNode(node, tag);
-				const description = getDescriptionNode(next, tag);
+				var element = getElementNode(node, tag);
+				var description = getDescriptionNode(next, tag);
 
 				if (element && description) {
 					sibling[i + 1] = [];
@@ -93,8 +93,8 @@ function replaceElement(tree, classNames, tag) {
  * @return {Function}
  */
 module.exports = function (b, tag) {
-	const elementModifier = MODIFIERS[tag] || tag;
-	const classNames = {
+	var elementModifier = MODIFIERS[tag] || tag;
+	var classNames = {
 		block: b('figure', {type: elementModifier}),
 		element: b('figure-content', {type: elementModifier}),
 		caption: b('figure-caption', {type: elementModifier})
